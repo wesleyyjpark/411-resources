@@ -246,7 +246,7 @@ def create_app(config_class=ProductionConfig):
             app.logger.info("Users table recreated successfully")
             return make_response(jsonify({
                 "status": "success",
-                "message": f"Users table recreated successfully"
+                "message": "Users table recreated successfully"
             }), 200)
 
         except Exception as e:
