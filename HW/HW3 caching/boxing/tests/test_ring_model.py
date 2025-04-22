@@ -93,7 +93,10 @@ def test_get_boxers_with_data(app, ring_model, sample_boxers):
     ring_model.ring.extend([boxer.id for boxer in sample_boxers])
 
     boxers = ring_model.get_boxers()
-    assert boxers == sample_boxers, "Expected get_boxers to return the correct boxers list."
+    assert [b.id for b in boxers] == [b.id for b in sample_boxers], "Expected get_boxers to return the correct boxers list."
+    assert [b.name for b in boxers] == [b.name for b in sample_boxers], "Expected get_boxers to return the correct boxers list."
+    assert [b.weight for b in boxers] == [b.weight for b in sample_boxers], "Expected get_boxers to return the correct boxers list."
+
 
 def test_get_boxers_uses_cache(ring_model, sample_boxer1, mocker):
     ring_model.ring.append(sample_boxer1.id)
