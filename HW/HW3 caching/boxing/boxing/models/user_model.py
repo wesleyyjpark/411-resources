@@ -78,9 +78,9 @@ class Users(db.Model, UserMixin):
             logger.error("Invalid username provided")
             raise ValueError("Username must be a non-empty string")
         
-        if not password or not isinstance(password, str) or len(password) < 8:
+        if not password or not isinstance(password, str):
             logger.error("Invalid password provided")
-            raise ValueError("Password must be a string of at least 8 characters")
+            raise ValueError("Password must be a non-empty string")
         
         # Check if username already exists
         existing_user = cls.query.filter_by(username=username).first()

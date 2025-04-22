@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+
+
 # Copy the env file to the container
 COPY .env /app/.env
 
